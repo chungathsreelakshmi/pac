@@ -100,4 +100,4 @@ def test_an_app():
     return render_template('test_an_app.html',data = result)
             
 
-app.run(debug=True,port=5001,host="192.168.1.76")
+app.run(debug=True,port=5001,host="192.168.43.92")
