@@ -1,0 +1,37 @@
+{% include 'adminheader.html' %}
+<style>
+table{
+    width: 100%;
+}
+table td {
+   padding: 20px;
+   background:#fff;
+   color:#000;
+}
+table th{
+   background:#ED502E;
+   color:#fff;
+   padding: 20px;
+   text-align: center;
+}
+</style>
+<h1>Categories</h1>
+
+<table>
+
+<tr>
+    <th>Category</th>
+    <th>--</th>
+</tr>
+{% for key in data  %}
+
+    <tr>
+        <td>{{key}}</td>
+        <td><a href="/view_category_frequent_list?category={{key}}">Frequent list</a> </td>
+    </tr>
+
+{% endfor %}
+
+
+</table>
+{% include 'footer.html' %}

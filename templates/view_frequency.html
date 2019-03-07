@@ -1,0 +1,47 @@
+{% include 'adminheader.html' %}
+<style>
+table{
+    width: 100%;
+}
+table td {
+   padding: 20px;
+   background:#fff;
+   color:#000;
+}
+table th{
+   background:#ED502E;
+   color:#fff;
+   padding: 20px;
+   text-align: center;
+}
+</style>
+<h1>Frequent item list</h1>
+
+<table border="1">
+<tr>
+    <th>Frequency</th>
+</tr>
+{% for key in data %}
+<tr>
+    <td >
+        <table border="1">
+
+        {% for k,v in key.items() %}
+            <tr>
+
+                <td style="text-align:left">
+                    {% for i in k %}
+                    {{i}}<br>
+                    {% endfor %}
+                </td>
+                <td>{{ v }}</td>
+            </tr>
+
+        {% endfor %}
+        </table>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+{% include 'footer.html' %}

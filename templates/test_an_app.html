@@ -1,0 +1,49 @@
+{% include 'adminheader.html'%}
+	<div class="row">
+		<div class="col-md-12">
+			<h1>Upload manifest</h1>
+			<form action="" method="post" enctype="multipart/form-data">
+				<div class="form-group">
+					<input class="form-control" type="file" name="manifest">
+				</div>
+				<div class="form-group">
+					<input class="btn btn-warning"  type="submit" name="upload" value="Upload">
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			{% if data['abuse'] == 'yes' %}
+			<div class="alert-info col-md-12">
+				<h3>App permissions</h3>
+				{% for perm in data['permissions'] %}
+				{{perm}} <br>
+				{% endfor %}
+			</div>
+			<div class="alert-danger col-md-12">
+				<h3>Abused permissions</h3>
+				{% for perm in data['abused_permission'] %}
+				{{perm}} <br>
+				{% endfor %}
+			</div>
+			{% elif  data['abuse'] == 'no' %}
+			<div class="alert-info col-md-12">
+				<h3>App permissions</h3>
+				{% for perm in data['permissions'] %}
+				{{perm}} <br>
+				{% endfor %}
+			</div>
+			<div class="alert-success col-md-12">
+				<h3>Abused permissions</h3>
+				No abused permissions found.
+			</div>
+
+			{% elif  data['abuse'] == 'failed' %}
+			<div class="alert-danger col-md-12">
+				{{data['reason']}}
+			</div>
+			{% endif %}
+		</div>
+	</div>
+{% include 'footer.html'%}

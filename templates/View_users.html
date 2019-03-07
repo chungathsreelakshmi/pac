@@ -1,0 +1,56 @@
+{% include 'adminheader.html'%}
+<style>
+table{
+    width: 100%;
+}
+table td {
+   padding: 20px;
+   background:#fff;
+   color:#000;
+}
+table th{
+   background:#ED502E;
+   color:#fff;
+   padding: 20px;
+   text-align: center;
+}
+</style>
+<form method="get">
+    <center>
+        <h1>Users</h1>
+        <table >
+            <tr>
+                <th>Name of User</th>
+                <th>Phone</th>
+                <th>Email-Id</th>
+                <th>Status</th>
+                <th>Block/Unblock User</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{row['u_fname']}} {{row['u_lname']}}</td>
+                <td>{{row['u_phone']}}</td>
+                <td>{{row['u_email']}}</td>
+                <td>{{row['login_status']}}</td>
+                <td><a href="?id={{row['login_id']}}&block=1" class="btn btn-primary">Block
+
+            </tr>
+
+            {% endfor %}
+             {% for row in data1 %}
+            <tr>
+                <td>{{row['u_fname']}} {{row['u_lname']}}</td>
+                <td>{{row['u_phone']}}</td>
+                <td>{{row['u_email']}}</td>
+                <td>{{row['login_status']}}</td>
+                <td><a href="?id={{row['login_id']}}&unblock=1 " class="btn btn-primary">Unblock</a></td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+    </center>
+</form>
+
+{% include 'footer.html'%}
